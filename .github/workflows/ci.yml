@@ -1,0 +1,14 @@
+name: Primer CI
+
+on:
+    push:
+        branches:
+            -main
+
+jobs:
+    Primer_Ci:
+        runs-on: ubuntu-18.04
+        steps:
+            -   name: Primer WF
+                run: |
+                    echo 'Primer WorkFlow!'
