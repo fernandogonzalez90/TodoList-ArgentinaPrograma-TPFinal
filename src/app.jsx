@@ -4,8 +4,7 @@ import TaskList from './components/TaskList/TaskList';
 
 export function App() {
   // Obtener las tareas almacenadas en localStorage al cargar la página
-  const initialTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
   // Efecto de actualización para guardar las tareas en localStorage cuando cambien
   useEffect(() => {
