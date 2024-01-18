@@ -1,4 +1,3 @@
-import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 
 const TaskList = ({ tasks, onCompleteTask, onDeleteTask }) => {
