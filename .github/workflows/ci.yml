@@ -1,15 +1,11 @@
-# Nombre del workflow
 name: Primer CI
 
-# Se ejecuta cuando detecta un push en la rama main.
 on:
     push:
         branches:
             -   main
 
-# Trabajos a realizar
 jobs:
-    # Primer trabajo a realizar
     Primer_Ci:
         runs-on: ubuntu-18.04
         steps:
