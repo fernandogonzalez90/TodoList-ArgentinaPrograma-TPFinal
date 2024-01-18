@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TaskForm from './components/TaskForm/TaskForm';
 import TaskList from './components/TaskList/TaskList';
-
+// comentario de prueba
 export function App() {
   // Obtener las tareas almacenadas en localStorage al cargar la página
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
