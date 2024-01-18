@@ -16,4 +16,4 @@ jobs:
                 with:
                     node-version: '21'
             -   name: Install Dependencies
-                run: npm install
+                run: npm install --no-audit --no-fund --no-optional
