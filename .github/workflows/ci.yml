@@ -5,7 +5,7 @@ name: Primer CI
 on:
     push:
         branches:
-            -main
+            -   main
 
 # Trabajos a realizar
 jobs:
