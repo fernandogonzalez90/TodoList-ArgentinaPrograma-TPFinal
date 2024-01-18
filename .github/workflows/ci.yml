@@ -1,4 +1,4 @@
-name: Say hello
+name: Primer WorkFlow
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Echo the message
         run: |
-          echo "Hola midu!"
+          echo "Ejecutando el primer msg del workflow"
       - name: Dime la fecha
         run: date
       - run: ls -l
