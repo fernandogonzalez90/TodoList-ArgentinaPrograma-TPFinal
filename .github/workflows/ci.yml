@@ -1,14 +1,17 @@
-name: Primer CI
+name: Say hello
 
 on:
-    push:
-        branches:
-            -   main
+  push:
+    branches:
+      - main
 
 jobs:
-    Primer_Ci:
-        runs-on: ubuntu-18.04
-        steps:
-            -   name: Primer WF
-                run: |
-                    echo 'Primer WorkFlow!'
+  hello_world:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Echo the message
+        run: |
+          echo "Hola midu!"
+      - name: Dime la fecha
+        run: date
+      - run: ls -l
