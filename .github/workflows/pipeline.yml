@@ -1,34 +1,24 @@
 name: Build on Push
 
 on:
-  push:
-    # Se ejecuta cuando se hace un push a la rama main
-    branches:
-      - main
+    push:
+        branches:
+            -   main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-22.04
-    # Definir los pasos del trabajo
-    steps:
-      # Paso 1: Hacer checkout del repositorio
-      - uses: actions/checkout@v1
-      
-      # Paso 2: Configurar Node.js con la versión 20
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-          
-      # Paso 3: Instalar las dependencias del proyecto
-      - name: Install dependencies
-        run: npm install
-      
-      # Paso 4: Acceder a las variables de entorno del repositorio
-      - name: Build
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        # Paso 5: Ejecutar el build y deployarlo a Netlify si todo está correcto
-        run: |
-          npm start
-          npx netlify-cli deploy --dir=dist --prod
+    deploy:
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v1
+            -   uses: actions/setup-node@v2
+                with:
+                    node-version: '20'
+            -   name: Install dependencies
+                run: npm install
+            -   name: Build
+                env:
+                    NETLIFY_SITE_ID: ${{  secrets.NETLIFY_SITE_ID  }}
+                    NETLIFY_AUTH_TOKEN: ${{  secrets.NETLIFY_AUT_TOKEN  }}
+                run:    |
+                    npm start
+                    npx netlify-cli deploy --dir=dist --prod
