@@ -39,6 +39,7 @@ export function App() {
     setTasks(updatedTasks);
   };
 
+  // añado un comentario de pruebas
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="card text-center">
