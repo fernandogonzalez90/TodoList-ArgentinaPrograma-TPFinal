@@ -1,25 +1,20 @@
-name: Deplyment Pipeline
+name: Build on Push
 
 on:
     push:
-        branches:
-            -   main
+        paths-ignore:
+            -   ".github/**"
 
 jobs:
     deploy:
         runs-on: ubuntu-22.04
         steps:
-            -   uses: actions/checkout@v2
-                with:
-                    fetch-depth: 0
-            -   uses: actions/setup-node@v2
-                with:
-                    node-version: '21'
-            -   name: Install Dependencies
-                run: npm ci
-            -   name: Deploy to Heroku
-                uses: akhileshns/heroku-deploy@v3.13.15 # This is the action
-                with:
-                    heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-                    heroku_app_name: ${{secrets.HEROKU_APP}}
-                    heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+            -   uses: actions/checkout@v1
+            -   name: Build
+                env:
+                    NETLIFY_SITE_ID: ${{  secrets.NETLIFY_SITE_ID  }}
+                    NETLIFY_AUTH_TOKEN: ${{  secrets.NETLIFY_AUT_TOKEN  }}
+                run:    |
+                    npm
+                    npm start
+                    npx netlify-cli deploy --dir=dist --prod
