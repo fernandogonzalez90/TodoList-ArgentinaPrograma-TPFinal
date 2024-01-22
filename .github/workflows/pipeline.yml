@@ -15,6 +15,5 @@ jobs:
                     NETLIFY_SITE_ID: ${{  secrets.NETLIFY_SITE_ID  }}
                     NETLIFY_AUTH_TOKEN: ${{  secrets.NETLIFY_AUT_TOKEN  }}
                 run:    |
-                    npm
                     npm start
                     npx netlify-cli deploy --dir=dist --prod
