@@ -2,14 +2,19 @@ name: Build on Push
 
 on:
     push:
-        paths-ignore:
-            -   ".github/**"
+        branches:
+            -   main
 
 jobs:
     deploy:
         runs-on: ubuntu-22.04
         steps:
             -   uses: actions/checkout@v1
+            -   uses: actions/setup-node@v2
+                with:
+                    node-version: '20'
+            -   name: Install dependencies
+                run: npm install
             -   name: Build
                 env:
                     NETLIFY_SITE_ID: ${{  secrets.NETLIFY_SITE_ID  }}
