@@ -6,6 +6,17 @@ Añadir persistencia en Storage del navegador.
 Añadir estilos.
 Usar useEffect y useState
 
+### Ademas le añadi un pipeline de github actions
+    
+    Cuenta un pipeline el cual:
+    - Usa una imagen de ubuntu 22.04
+    - Instala node v20
+    - Instala las dependencias de la app
+    - Crea un build
+    - Toma informacion de los secrets de github actions
+    - Deploya directamente a produccion usando netlify-cli
+
+
 
 App.jsx
 
